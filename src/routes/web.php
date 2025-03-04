@@ -2,8 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FriendController;
-use App\Http\Controllers\BirthplaceController;
-
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,12 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 */
-Route::get('/', [FriendController::class, 'index']);
-Route::post('/friends', [FriendController::class, 'store']);
-Route::patch('/friends/update', [FriendController::class, 'update']);
-Route::delete('/friends/delete', [FriendController::class, 'destroy']);
 
-Route::get('/birthplaces', [BirthplaceController::class, 'index']);
-Route::post('/birthplaces/create', [BirthplaceController::class, 'store']);
-Route::patch('/birthplaces/update', [BirthplaceController::class, 'update']);
-Route::delete('birthplaces/delete', [BirthplaceController::class, 'destroy']);
+Route::get('/', [AuthController::class, 'index']);
+
+Route::middleware('auth')->group(function() {
+    Route::get('/', [AuthController::class, 'index']);
+});
