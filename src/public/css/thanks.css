@@ -1,0 +1,20 @@
+.thanks__content {
+    margin: 0px auto;
+    padding: 30px 15px;
+    max-width: 1230px;
+}
+
+.thanks__content-header {
+    text-align: center;
+}
+
+.login__link {
+    padding: 5px;
+    text-align: center;
+}
+
+.login__link-submit {
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+}
